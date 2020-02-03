@@ -20,6 +20,10 @@ const OrderSchema = new Schema({
         type : Number,
         required : true
     },
+    orderStatus : {
+        type : String,
+        default : "Processing"
+    },
     date : {
         type: Date,
         default: Date.now

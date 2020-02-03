@@ -61,6 +61,11 @@ router.post(
 
       await newOrder.save();
       //update count of items
+      const updatedCount = itemObj.count - numberOfItems;
+      const updateObj = {
+        count : updatedCount
+      }
+      await itemObj.updateOne(updateObj);
       res.status(200).json({ msg: "Order Placed!!!" });
     } catch (err) {
         res.status(500).send("Internal Server error");
